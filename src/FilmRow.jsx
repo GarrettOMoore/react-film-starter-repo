@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import FilmPoster from './FilmPoster'
+import Favorite from './Favorite'
 
 class FilmRow extends Component {
+    handleDetailsClick = (film) => {
+        console.log("Fetching details for " + film)
+    }
     render() {
-        let relDate = this.props.film.release_date;
-        let relYear = relDate.split('-');
+        const relDate = this.props.film.release_date;
+        const relYear = relDate.split('-');
         return (
-            <div className="film-row">
+            <div onClick={ (e) => this.handleDetailsClick(this.props.film.title) } className="film-row">
             <FilmPoster film={this.props.film}/>
-                <h1>{this.props.film.title}</h1>
-                <p>{relYear[0]}</p>
+                <div className="film-year">
+                    <h1>{this.props.film.title}</h1>
+                    <p>{relYear[0]}</p>
+                </div>
+                <Favorite />
             </div>
         )
     }

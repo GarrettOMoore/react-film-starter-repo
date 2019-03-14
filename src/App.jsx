@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './index.css';
 import FilmListing from './FilmListing';
 import FilmDetails from './FilmDetails';
 import TMDB from './TMDB';
